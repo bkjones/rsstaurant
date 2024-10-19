@@ -13,6 +13,8 @@ This does the job more or less right now, but as it was done in a rush, there ar
  2. I parse timestamps using only one hard-coded method, so if the feed doesn't happen to use that format, it fails.
  3. I didn't implement authentication on a few endpoints that should have it if this were going to be used in any kind of
     "production" way: /users, and /feeds in particular.
+ 4. All of the feed post collection is done in one thread. If I wanted to scale this beyond maybe 10 feeds I'd do
+    collection in a separate goroutine for each feed.
 
 At some point, it'd be good to add a front end for this using React/Typescript. Here's a quick non-exhaustive api doc.
 See main.go for a list of all of the endpoints.
