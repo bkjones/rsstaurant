@@ -5,6 +5,9 @@ This was just a learning exercise. It's not intended to be run by anyone in any 
 The database back end is postgres. I used sqlc to handle db schema migrations, and 'goose' to generate golang client
 code for queries.
 
+To start the daemon:
+`go build && ./rsstaurant`
+
 This does the job more or less right now, but as it was done in a rush, there are a few outstanding issues:
  1. Some feeds throw XML errors & I haven't bothered to look into that.
  2. I parse timestamps using only one hard-coded method, so if the feed doesn't happen to use that format, it fails.
